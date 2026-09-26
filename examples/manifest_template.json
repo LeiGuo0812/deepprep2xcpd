@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "profile": "deepprep-24.1.2-synthmorph-ras-mm",
+  "space": "MNI152NLin6Asym",
+  "task": "rest",
+  "subjects": [
+    {
+      "subject": "sub-001",
+      "anatomy": {
+        "native_t1w": "/deepprep/BOLD/sub-001/anat/sub-001_desc-preproc_T1w.nii.gz",
+        "native_mask": "/deepprep/BOLD/sub-001/anat/sub-001_desc-brain_mask.nii.gz",
+        "registration_moving": "/deepprep/BOLD/sub-001/anat/sub-001_space-T1w_res-2mm_desc-skull_T1w.nii.gz",
+        "registration_warped": "/deepprep/BOLD/sub-001/anat/sub-001_space-MNI152NLin6Asym_res-02_desc-skull_T1w.nii.gz",
+        "forward_ras": "/deepprep/BOLD/sub-001/anat/sub-001_from-T1w_to-MNI152NLin6Asym_desc-joint_trans.nii.gz"
+      },
+      "runs": [
+        {
+          "prefix": "sub-001_ses-01_task-rest_run-01",
+          "resolution": "2",
+          "bold": "/deepprep/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz",
+          "bold_json": "/deepprep/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.json",
+          "confounds": "/deepprep/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv",
+          "confounds_json": "/deepprep/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.json",
+          "t1w_mask": "/deepprep/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-T1w_desc-brain_mask.nii.gz",
+          "boldref": "/deepprep/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz"
+        }
+      ]
+    }
+  ]
+}

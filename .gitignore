@@ -1,0 +1,26 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+# Research datasets and runtime products do not belong in this source repository.
+*.nii
+*.nii.gz
+*.mgz
+*.mgh
+*.gii
+*.h5
+*.sif
+*.tar
+*.zip
+adapter-results/
+xcpd-input/
+xcpd-output/
+work/
+.*.building-*/
+manifest.json
+participants.tsv
+license.txt

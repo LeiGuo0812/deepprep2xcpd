@@ -1,0 +1,676 @@
+test_all_entry_paths_prioritize_complete_bold_without_crawling_work (test_adapter.PlanningPriorityTests.test_all_entry_paths_prioritize_complete_bold_without_crawling_work) ... ok
+test_anatomy_fallback_does_not_add_unpublished_run (test_adapter.PlanningPriorityTests.test_anatomy_fallback_does_not_add_unpublished_run) ... ok
+test_missing_bold_tree_recovers_from_work_with_consistent_dataset_binding (test_adapter.PlanningPriorityTests.test_missing_bold_tree_recovers_from_work_with_consistent_dataset_binding) ... ok
+test_missing_extra_search_root_reports_typo (test_adapter.PlanningPriorityTests.test_missing_extra_search_root_reports_typo) ... ok
+test_optional_reference_is_recovered_before_first_frame_fallback (test_adapter.PlanningPriorityTests.test_optional_reference_is_recovered_before_first_frame_fallback) ... ok
+test_conflicting_work_files_rejected (test_adapter.SelectionTests.test_conflicting_work_files_rejected) ... ok
+test_confounds_time_mismatch_rejected (test_adapter.SelectionTests.test_confounds_time_mismatch_rejected) ... ok
+test_reader_includes_sessionless_and_session_runs (test_adapter.SelectionTests.test_reader_includes_sessionless_and_session_runs) ... Published dataset: /tmp/tmp6s_s98fl/BOLD
+Wrote /tmp/tmp6s_s98fl/manifest0.json: 1 subjects, 1 runs. No conversion executed.
+Published dataset: /tmp/tmp6s_s98fl/BOLD
+Wrote /tmp/tmp6s_s98fl/manifest1.json: 1 subjects, 1 runs. No conversion executed.
+Published dataset: /tmp/tmp6s_s98fl/BOLD
+Wrote /tmp/tmp6s_s98fl/manifest2.json: 1 subjects, 1 runs. No conversion executed.
+Published dataset: /tmp/tmp7z79hhci/BOLD
+Wrote /tmp/tmp7z79hhci/manifest0.json: 1 subjects, 1 runs. No conversion executed.
+Published dataset: /tmp/tmpwf2qztkm/BOLD
+Wrote /tmp/tmpwf2qztkm/manifest0.json: 1 subjects, 1 runs. No conversion executed.
+Published dataset: /tmp/tmpwf2qztkm/BOLD
+Wrote /tmp/tmpwf2qztkm/manifest1.json: 1 subjects, 1 runs. No conversion executed.
+Published dataset: /tmp/tmp380t2wvw/BOLD
+Wrote /tmp/tmp380t2wvw/manifest0.json: 1 subjects, 1 runs. No conversion executed.
+260926-12:39:52,330 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:39:52,359 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmp_51l8ykq/sub-001/anat/sub-001_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmp_51l8ykq/sub-001/anat/sub-001_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmp_51l8ykq/sub-001/func/sub-001_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+- /tmp/tmp_51l8ykq/sub-001/ses-B/func/sub-001_ses-B_task-rest_run-02_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmp_51l8ykq/sub-001/anat/sub-001_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmp_51l8ykq/sub-001/anat/sub-001_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:39:52,373 nipype.utils IMPORTANT:
+	 Collected run data for sub-001_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmp_51l8ykq/sub-001/func/sub-001_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmp_51l8ykq/sub-001/func/sub-001_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmp_51l8ykq/sub-001/func/sub-001_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmp_51l8ykq/sub-001/func/sub-001_task-rest_run-01_desc-confounds_timeseries.json
+
+260926-12:39:52,388 nipype.utils IMPORTANT:
+	 Collected run data for sub-001_ses-B_task-rest_run-02_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmp_51l8ykq/sub-001/ses-B/func/sub-001_ses-B_task-rest_run-02_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmp_51l8ykq/sub-001/ses-B/func/sub-001_ses-B_task-rest_run-02_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmp_51l8ykq/sub-001/ses-B/func/sub-001_ses-B_task-rest_run-02_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmp_51l8ykq/sub-001/ses-B/func/sub-001_ses-B_task-rest_run-02_desc-confounds_timeseries.json
+
+ok
+test_subject_path_injection_rejected (test_adapter.SelectionTests.test_subject_path_injection_rejected) ... ok
+test_workdir_fallback_sessions_and_run_boundaries (test_adapter.SelectionTests.test_workdir_fallback_sessions_and_run_boundaries) ... ok
+test_ants_pull_direction_on_ramp (test_adapter.TransformTests.test_ants_pull_direction_on_ramp) ... ok
+test_physical_affine_inverse_and_lps_serialization (test_adapter.TransformTests.test_physical_affine_inverse_and_lps_serialization) ... ok
+test_full_conversion_inplace_preserves_reuses_reads_and_rolls_back (test_inplace.ConversionTests.test_full_conversion_inplace_preserves_reuses_reads_and_rolls_back) ... Published dataset: /tmp/tmp9cv378oh/BOLD
+Wrote /tmp/tmp9cv378oh/manifest.json: 1 subjects, 2 runs. No conversion executed.
+HASHING_SOURCES: 11 source files; reading SHA256 before conversion ...
+STAGING_SUBJECTS: requested jobs=1, effective jobs=1
+Adapting sub-001 (PID 7) ...
+PASS sub-001: 0.2 seconds (1/1)
+VALIDATING_READER
+260926-12:39:52,731 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:39:52,760 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmpafx2dvwn/.BOLD.building-zfpx6e1a/sub-001/anat/sub-001_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmpafx2dvwn/.BOLD.building-zfpx6e1a/sub-001/anat/sub-001_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmpafx2dvwn/.BOLD.building-zfpx6e1a/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmpafx2dvwn/.BOLD.building-zfpx6e1a/sub-001/anat/sub-001_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmpafx2dvwn/.BOLD.building-zfpx6e1a/sub-001/anat/sub-001_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:39:52,776 nipype.utils IMPORTANT:
+	 Collected run data for sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmpafx2dvwn/.BOLD.building-zfpx6e1a/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmpafx2dvwn/.BOLD.building-zfpx6e1a/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmpafx2dvwn/.BOLD.building-zfpx6e1a/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmpafx2dvwn/.BOLD.building-zfpx6e1a/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+RECHECKING_SOURCES: verifying SHA256 before publication ...
+PUBLISHING
+260926-12:39:52,893 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:39:52,926 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmpafx2dvwn/BOLD/sub-001/anat/sub-001_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmpafx2dvwn/BOLD/sub-001/anat/sub-001_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmpafx2dvwn/BOLD/sub-001/anat/sub-001_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmpafx2dvwn/BOLD/sub-001/anat/sub-001_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:39:52,942 nipype.utils IMPORTANT:
+	 Collected run data for sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+PASS: supplemented existing dataset: /tmp/tmpafx2dvwn/BOLD
+Transaction: 20260926T123952Z-19f5269b
+Reused: 7; written: 19. XCP-D was not run.
+260926-12:39:53,40 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:39:53,75 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmpafx2dvwn/BOLD/sub-001/anat/sub-001_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmpafx2dvwn/BOLD/sub-001/anat/sub-001_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmpafx2dvwn/BOLD/sub-001/anat/sub-001_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmpafx2dvwn/BOLD/sub-001/anat/sub-001_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:39:53,89 nipype.utils IMPORTANT:
+	 Collected run data for sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+260926-12:39:53,318 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:39:53,353 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmpafx2dvwn/BOLD/sub-001/anat/sub-001_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmpafx2dvwn/BOLD/sub-001/anat/sub-001_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmpafx2dvwn/BOLD/sub-001/anat/sub-001_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmpafx2dvwn/BOLD/sub-001/anat/sub-001_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:39:53,369 nipype.utils IMPORTANT:
+	 Collected run data for sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+Published dataset: /tmp/tmpafx2dvwn/BOLD
+Wrote /tmp/tmpafx2dvwn/replan.json: 1 subjects, 1 runs. No conversion executed.
+HASHING_SOURCES: 11 source files; reading SHA256 before conversion ...
+STAGING_SUBJECTS: requested jobs=1, effective jobs=1
+Adapting sub-001 (PID 7) ...
+PASS sub-001: 0.2 seconds (1/1)
+VALIDATING_READER
+260926-12:39:53,672 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:39:53,706 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmpafx2dvwn/.BOLD.building-gec8qdy7/sub-001/anat/sub-001_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmpafx2dvwn/.BOLD.building-gec8qdy7/sub-001/anat/sub-001_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmpafx2dvwn/.BOLD.building-gec8qdy7/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmpafx2dvwn/.BOLD.building-gec8qdy7/sub-001/anat/sub-001_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmpafx2dvwn/.BOLD.building-gec8qdy7/sub-001/anat/sub-001_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:39:53,724 nipype.utils IMPORTANT:
+	 Collected run data for sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmpafx2dvwn/.BOLD.building-gec8qdy7/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmpafx2dvwn/.BOLD.building-gec8qdy7/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmpafx2dvwn/.BOLD.building-gec8qdy7/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmpafx2dvwn/.BOLD.building-gec8qdy7/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+RECHECKING_SOURCES: verifying SHA256 before publication ...
+PUBLISHING
+260926-12:39:53,846 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:39:53,879 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmpafx2dvwn/BOLD/sub-001/anat/sub-001_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmpafx2dvwn/BOLD/sub-001/anat/sub-001_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmpafx2dvwn/BOLD/sub-001/anat/sub-001_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmpafx2dvwn/BOLD/sub-001/anat/sub-001_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:39:53,894 nipype.utils IMPORTANT:
+	 Collected run data for sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmpafx2dvwn/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+ok
+test_separate_copy_remains_independent_and_original_reference_unchanged (test_inplace.ConversionTests.test_separate_copy_remains_independent_and_original_reference_unchanged) ... PASS: supplemented existing dataset: /tmp/tmpafx2dvwn/BOLD
+Transaction: 20260926T123953Z-c6098192
+Reused: 24; written: 2. XCP-D was not run.
+ROLLED BACK: 20260926T123953Z-c6098192; backups and journal retained
+ROLLED BACK: 20260926T123952Z-19f5269b; backups and journal retained
+HASHING_SOURCES: 11 source files; reading SHA256 before conversion ...
+STAGING_SUBJECTS: requested jobs=1, effective jobs=1
+Adapting sub-001 (PID 7) ...
+PASS sub-001: 0.2 seconds (1/1)
+VALIDATING_READER
+260926-12:39:54,189 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:39:54,359 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmp3c_bjmgt/.separate.building-r1t96sck/sub-001/anat/sub-001_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmp3c_bjmgt/.separate.building-r1t96sck/sub-001/anat/sub-001_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmp3c_bjmgt/.separate.building-r1t96sck/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmp3c_bjmgt/.separate.building-r1t96sck/sub-001/anat/sub-001_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmp3c_bjmgt/.separate.building-r1t96sck/sub-001/anat/sub-001_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:39:54,377 nipype.utils IMPORTANT:
+	 Collected run data for sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmp3c_bjmgt/.separate.building-r1t96sck/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmp3c_bjmgt/.separate.building-r1t96sck/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmp3c_bjmgt/.separate.building-r1t96sck/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmp3c_bjmgt/.separate.building-r1t96sck/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+RECHECKING_SOURCES: verifying SHA256 before publication ...
+PUBLISHING
+PASS: ready input dataset: /tmp/tmp3c_bjmgt/separate
+XCP-D was not run.
+260926-12:39:54,481 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:39:54,518 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmp3c_bjmgt/separate/sub-001/anat/sub-001_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmp3c_bjmgt/separate/sub-001/anat/sub-001_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmp3c_bjmgt/separate/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmp3c_bjmgt/separate/sub-001/anat/sub-001_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmp3c_bjmgt/separate/sub-001/anat/sub-001_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:39:54,536 nipype.utils IMPORTANT:
+	 Collected run data for sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmp3c_bjmgt/separate/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmp3c_bjmgt/separate/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmp3c_bjmgt/separate/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmp3c_bjmgt/separate/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+ok
+test_conflict_found_before_any_publication (test_inplace.PublicationTests.test_conflict_found_before_any_publication) ... ok
+test_reuse_symlink_then_explicit_rollback (test_inplace.PublicationTests.test_reuse_symlink_then_explicit_rollback) ... ok
+test_rollback_preserves_externally_edited_file (test_inplace.PublicationTests.test_rollback_preserves_externally_edited_file) ... ok
+test_symlinked_directory_and_second_writer_rejected (test_inplace.PublicationTests.test_symlinked_directory_and_second_writer_rejected) ... ok
+test_validation_failure_restores_original_and_removes_additions (test_inplace.PublicationTests.test_validation_failure_restores_original_and_removes_additions) ... ok
+test_extra_sources_and_offline_image_and_platform (test_launcher.LauncherTests.test_extra_sources_and_offline_image_and_platform) ... ok
+test_missing_source_fails_before_docker_is_called (test_launcher.LauncherTests.test_missing_source_fails_before_docker_is_called) ... ok
+test_only_inplace_and_rollback_enable_source_writes (test_launcher.LauncherTests.test_only_inplace_and_rollback_enable_source_writes) ... ok
+test_plan_preserves_spaces_and_uses_read_only_source (test_launcher.LauncherTests.test_plan_preserves_spaces_and_uses_read_only_source) ... ok
+test_test_command_needs_no_source_mount_and_disables_network (test_launcher.LauncherTests.test_test_command_needs_no_source_mount_and_disables_network) ... ok
+test_failed_worker_prevents_publication_for_both_layouts (test_parallel.ParallelConversionTests.test_failed_worker_prevents_publication_for_both_layouts) ... ROLLED BACK: 20260926T123954Z-d9ec23b3; backups and journal retained
+HASHING_SOURCES: 22 source files; reading SHA256 before conversion ...
+STAGING_SUBJECTS: requested jobs=2, effective jobs=2
+Adapting sub-002 (PID 127) ...
+Adapting sub-001 (PID 124) ...
+FAILED: retained diagnostic staging directory: /tmp/tmpgw97runv/.failed.building-0xfeah0g
+HASHING_SOURCES: 22 source files; reading SHA256 before conversion ...
+STAGING_SUBJECTS: requested jobs=2, effective jobs=2
+Adapting sub-002 (PID 152) ...
+Adapting sub-001 (PID 149) ...
+FAILED: retained diagnostic staging directory: /tmp/tmpgw97runv/.BOLD.building-ytd8xuk4
+ok
+test_interruption_retains_diagnostics_without_publishing (test_parallel.ParallelConversionTests.test_interruption_retains_diagnostics_without_publishing) ... HASHING_SOURCES: 22 source files; reading SHA256 before conversion ...
+STAGING_SUBJECTS: requested jobs=2, effective jobs=2
+FAILED: retained diagnostic staging directory: /tmp/tmpnm6flbn7/.BOLD.building-2wxu89jk
+ok
+test_invalid_jobs_rejected_before_lock_or_staging (test_parallel.ParallelConversionTests.test_invalid_jobs_rejected_before_lock_or_staging) ... ok
+test_parallel_copy_matches_serial_scientific_outputs_and_manifest_order (test_parallel.ParallelConversionTests.test_parallel_copy_matches_serial_scientific_outputs_and_manifest_order) ... HASHING_SOURCES: 22 source files; reading SHA256 before conversion ...
+STAGING_SUBJECTS: requested jobs=1, effective jobs=1
+Adapting sub-002 (PID 7) ...
+PASS sub-002: 0.2 seconds (1/2)
+Adapting sub-001 (PID 7) ...
+PASS sub-001: 0.2 seconds (2/2)
+VALIDATING_READER
+260926-12:39:58,413 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:39:58,444 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmprmwdunnu/.serial.building-xd1vpox8/sub-002/anat/sub-002_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmprmwdunnu/.serial.building-xd1vpox8/sub-002/anat/sub-002_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmprmwdunnu/.serial.building-xd1vpox8/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmprmwdunnu/.serial.building-xd1vpox8/sub-002/anat/sub-002_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmprmwdunnu/.serial.building-xd1vpox8/sub-002/anat/sub-002_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:39:58,460 nipype.utils IMPORTANT:
+	 Collected run data for sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmprmwdunnu/.serial.building-xd1vpox8/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmprmwdunnu/.serial.building-xd1vpox8/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmprmwdunnu/.serial.building-xd1vpox8/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmprmwdunnu/.serial.building-xd1vpox8/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+260926-12:39:58,494 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:39:58,524 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmprmwdunnu/.serial.building-xd1vpox8/sub-001/anat/sub-001_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmprmwdunnu/.serial.building-xd1vpox8/sub-001/anat/sub-001_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmprmwdunnu/.serial.building-xd1vpox8/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmprmwdunnu/.serial.building-xd1vpox8/sub-001/anat/sub-001_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmprmwdunnu/.serial.building-xd1vpox8/sub-001/anat/sub-001_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:39:58,539 nipype.utils IMPORTANT:
+	 Collected run data for sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmprmwdunnu/.serial.building-xd1vpox8/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmprmwdunnu/.serial.building-xd1vpox8/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmprmwdunnu/.serial.building-xd1vpox8/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmprmwdunnu/.serial.building-xd1vpox8/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+RECHECKING_SOURCES: verifying SHA256 before publication ...
+PUBLISHING
+PASS: ready input dataset: /tmp/tmprmwdunnu/serial
+XCP-D was not run.
+260926-12:40:06,834 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:40:06,866 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmprmwdunnu/parallel/sub-002/anat/sub-002_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmprmwdunnu/parallel/sub-002/anat/sub-002_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmprmwdunnu/parallel/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmprmwdunnu/parallel/sub-002/anat/sub-002_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmprmwdunnu/parallel/sub-002/anat/sub-002_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:40:06,883 nipype.utils IMPORTANT:
+	 Collected run data for sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmprmwdunnu/parallel/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmprmwdunnu/parallel/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmprmwdunnu/parallel/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmprmwdunnu/parallel/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+260926-12:40:06,925 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:40:06,954 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmprmwdunnu/parallel/sub-001/anat/sub-001_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmprmwdunnu/parallel/sub-001/anat/sub-001_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmprmwdunnu/parallel/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmprmwdunnu/parallel/sub-001/anat/sub-001_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmprmwdunnu/parallel/sub-001/anat/sub-001_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:40:06,970 nipype.utils IMPORTANT:
+	 Collected run data for sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmprmwdunnu/parallel/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmprmwdunnu/parallel/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmprmwdunnu/parallel/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmprmwdunnu/parallel/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+ok
+test_parallel_inplace_commits_once_and_rolls_back_both_subjects (test_parallel.ParallelConversionTests.test_parallel_inplace_commits_once_and_rolls_back_both_subjects) ... HASHING_SOURCES: 22 source files; reading SHA256 before conversion ...
+STAGING_SUBJECTS: requested jobs=2, effective jobs=2
+Adapting sub-002 (PID 230) ...
+Adapting sub-001 (PID 233) ...
+PASS sub-002: 0.2 seconds (1/2)
+PASS sub-001: 0.2 seconds (2/2)
+VALIDATING_READER
+260926-12:40:08,800 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:40:08,832 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmpmjph5l90/.BOLD.building-lp_c_l54/sub-002/anat/sub-002_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmpmjph5l90/.BOLD.building-lp_c_l54/sub-002/anat/sub-002_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmpmjph5l90/.BOLD.building-lp_c_l54/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmpmjph5l90/.BOLD.building-lp_c_l54/sub-002/anat/sub-002_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmpmjph5l90/.BOLD.building-lp_c_l54/sub-002/anat/sub-002_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:40:08,848 nipype.utils IMPORTANT:
+	 Collected run data for sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmpmjph5l90/.BOLD.building-lp_c_l54/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmpmjph5l90/.BOLD.building-lp_c_l54/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmpmjph5l90/.BOLD.building-lp_c_l54/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmpmjph5l90/.BOLD.building-lp_c_l54/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+260926-12:40:08,884 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:40:08,913 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmpmjph5l90/.BOLD.building-lp_c_l54/sub-001/anat/sub-001_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmpmjph5l90/.BOLD.building-lp_c_l54/sub-001/anat/sub-001_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmpmjph5l90/.BOLD.building-lp_c_l54/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmpmjph5l90/.BOLD.building-lp_c_l54/sub-001/anat/sub-001_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmpmjph5l90/.BOLD.building-lp_c_l54/sub-001/anat/sub-001_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:40:08,927 nipype.utils IMPORTANT:
+	 Collected run data for sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmpmjph5l90/.BOLD.building-lp_c_l54/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmpmjph5l90/.BOLD.building-lp_c_l54/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmpmjph5l90/.BOLD.building-lp_c_l54/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmpmjph5l90/.BOLD.building-lp_c_l54/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+RECHECKING_SOURCES: verifying SHA256 before publication ...
+PUBLISHING
+260926-12:40:09,66 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:40:09,95 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmpmjph5l90/BOLD/sub-002/anat/sub-002_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmpmjph5l90/BOLD/sub-002/anat/sub-002_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmpmjph5l90/BOLD/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmpmjph5l90/BOLD/sub-002/anat/sub-002_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmpmjph5l90/BOLD/sub-002/anat/sub-002_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:40:09,111 nipype.utils IMPORTANT:
+	 Collected run data for sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmpmjph5l90/BOLD/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmpmjph5l90/BOLD/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmpmjph5l90/BOLD/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmpmjph5l90/BOLD/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+260926-12:40:09,146 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:40:09,173 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmpmjph5l90/BOLD/sub-001/anat/sub-001_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmpmjph5l90/BOLD/sub-001/anat/sub-001_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmpmjph5l90/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmpmjph5l90/BOLD/sub-001/anat/sub-001_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmpmjph5l90/BOLD/sub-001/anat/sub-001_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:40:09,187 nipype.utils IMPORTANT:
+	 Collected run data for sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmpmjph5l90/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmpmjph5l90/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmpmjph5l90/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmpmjph5l90/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+PASS: supplemented existing dataset: /tmp/tmpmjph5l90/BOLD
+Transaction: 20260926T124008Z-a7968cd8
+Reused: 12; written: 33. XCP-D was not run.
+260926-12:40:09,302 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:40:09,331 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmpmjph5l90/BOLD/sub-002/anat/sub-002_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmpmjph5l90/BOLD/sub-002/anat/sub-002_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmpmjph5l90/BOLD/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmpmjph5l90/BOLD/sub-002/anat/sub-002_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmpmjph5l90/BOLD/sub-002/anat/sub-002_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:40:09,347 nipype.utils IMPORTANT:
+	 Collected run data for sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmpmjph5l90/BOLD/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmpmjph5l90/BOLD/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmpmjph5l90/BOLD/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmpmjph5l90/BOLD/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+260926-12:40:09,387 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:40:09,413 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmpmjph5l90/BOLD/sub-001/anat/sub-001_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmpmjph5l90/BOLD/sub-001/anat/sub-001_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmpmjph5l90/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmpmjph5l90/BOLD/sub-001/anat/sub-001_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmpmjph5l90/BOLD/sub-001/anat/sub-001_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:40:09,427 nipype.utils IMPORTANT:
+	 Collected run data for sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmpmjph5l90/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmpmjph5l90/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmpmjph5l90/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmpmjph5l90/BOLD/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+ok
+test_parallel_symlink_preserves_originals_and_links_remain_readable (test_parallel.ParallelConversionTests.test_parallel_symlink_preserves_originals_and_links_remain_readable) ... ROLLED BACK: 20260926T124008Z-a7968cd8; backups and journal retained
+HASHING_SOURCES: 22 source files; reading SHA256 before conversion ...
+STAGING_SUBJECTS: requested jobs=2, effective jobs=2
+Adapting sub-002 (PID 261) ...
+Adapting sub-001 (PID 258) ...
+PASS sub-002: 0.2 seconds (1/2)
+PASS sub-001: 0.2 seconds (2/2)
+VALIDATING_READER
+260926-12:40:11,49 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:40:11,225 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmptpzs6hkb/.parallel-links.building-6azf2wf5/sub-002/anat/sub-002_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmptpzs6hkb/.parallel-links.building-6azf2wf5/sub-002/anat/sub-002_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmptpzs6hkb/.parallel-links.building-6azf2wf5/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmptpzs6hkb/.parallel-links.building-6azf2wf5/sub-002/anat/sub-002_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmptpzs6hkb/.parallel-links.building-6azf2wf5/sub-002/anat/sub-002_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:40:11,241 nipype.utils IMPORTANT:
+	 Collected run data for sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmptpzs6hkb/.parallel-links.building-6azf2wf5/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmptpzs6hkb/.parallel-links.building-6azf2wf5/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmptpzs6hkb/.parallel-links.building-6azf2wf5/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmptpzs6hkb/.parallel-links.building-6azf2wf5/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+260926-12:40:11,276 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:40:11,304 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmptpzs6hkb/.parallel-links.building-6azf2wf5/sub-001/anat/sub-001_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmptpzs6hkb/.parallel-links.building-6azf2wf5/sub-001/anat/sub-001_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmptpzs6hkb/.parallel-links.building-6azf2wf5/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmptpzs6hkb/.parallel-links.building-6azf2wf5/sub-001/anat/sub-001_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmptpzs6hkb/.parallel-links.building-6azf2wf5/sub-001/anat/sub-001_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:40:11,319 nipype.utils IMPORTANT:
+	 Collected run data for sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmptpzs6hkb/.parallel-links.building-6azf2wf5/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmptpzs6hkb/.parallel-links.building-6azf2wf5/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmptpzs6hkb/.parallel-links.building-6azf2wf5/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmptpzs6hkb/.parallel-links.building-6azf2wf5/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+RECHECKING_SOURCES: verifying SHA256 before publication ...
+PUBLISHING
+PASS: ready input dataset: /tmp/tmptpzs6hkb/parallel-links
+XCP-D was not run.
+260926-12:40:11,428 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:40:11,458 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmptpzs6hkb/parallel-links/sub-002/anat/sub-002_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmptpzs6hkb/parallel-links/sub-002/anat/sub-002_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmptpzs6hkb/parallel-links/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmptpzs6hkb/parallel-links/sub-002/anat/sub-002_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmptpzs6hkb/parallel-links/sub-002/anat/sub-002_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:40:11,473 nipype.utils IMPORTANT:
+	 Collected run data for sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmptpzs6hkb/parallel-links/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmptpzs6hkb/parallel-links/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmptpzs6hkb/parallel-links/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmptpzs6hkb/parallel-links/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+260926-12:40:11,509 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:40:11,537 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmptpzs6hkb/parallel-links/sub-001/anat/sub-001_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmptpzs6hkb/parallel-links/sub-001/anat/sub-001_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmptpzs6hkb/parallel-links/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmptpzs6hkb/parallel-links/sub-001/anat/sub-001_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmptpzs6hkb/parallel-links/sub-001/anat/sub-001_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:40:11,550 nipype.utils IMPORTANT:
+	 Collected run data for sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmptpzs6hkb/parallel-links/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmptpzs6hkb/parallel-links/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmptpzs6hkb/parallel-links/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmptpzs6hkb/parallel-links/sub-001/ses-01/func/sub-001_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+ok
+test_single_subject_caps_requested_workers_and_symlink_mode_works (test_parallel.ParallelConversionTests.test_single_subject_caps_requested_workers_and_symlink_mode_works) ... HASHING_SOURCES: 11 source files; reading SHA256 before conversion ...
+STAGING_SUBJECTS: requested jobs=4, effective jobs=1
+Adapting sub-002 (PID 7) ...
+PASS sub-002: 0.2 seconds (1/1)
+VALIDATING_READER
+260926-12:40:11,843 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:40:11,872 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmpecn4wqit/.links.building-rg7ldhqp/sub-002/anat/sub-002_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmpecn4wqit/.links.building-rg7ldhqp/sub-002/anat/sub-002_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmpecn4wqit/.links.building-rg7ldhqp/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmpecn4wqit/.links.building-rg7ldhqp/sub-002/anat/sub-002_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmpecn4wqit/.links.building-rg7ldhqp/sub-002/anat/sub-002_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:40:11,889 nipype.utils IMPORTANT:
+	 Collected run data for sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmpecn4wqit/.links.building-rg7ldhqp/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmpecn4wqit/.links.building-rg7ldhqp/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmpecn4wqit/.links.building-rg7ldhqp/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmpecn4wqit/.links.building-rg7ldhqp/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+RECHECKING_SOURCES: verifying SHA256 before publication ...
+PUBLISHING
+PASS: ready input dataset: /tmp/tmpecn4wqit/links
+XCP-D was not run.
+260926-12:40:11,982 nipype.utils WARNING:
+	 T1w found, but no T2w. Enabling T1w-only processing.
+260926-12:40:12,13 nipype.utils IMPORTANT:
+	 Collected data:
+anat_brainmask: /tmp/tmpecn4wqit/links/sub-002/anat/sub-002_space-MNI152NLin6Asym_desc-brain_mask.nii.gz
+anat_to_template_xfm: /tmp/tmpecn4wqit/links/sub-002/anat/sub-002_from-T1w_to-MNI152NLin6Asym_mode-image_xfm.nii.gz
+bold:
+- /tmp/tmpecn4wqit/links/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz
+t1w: /tmp/tmpecn4wqit/links/sub-002/anat/sub-002_desc-preproc_T1w.nii.gz
+t1w_to_t2w_xfm: null
+t2w: null
+t2w_to_t1w_xfm: null
+template_to_anat_xfm: /tmp/tmpecn4wqit/links/sub-002/anat/sub-002_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.nii.gz
+
+260926-12:40:12,27 nipype.utils IMPORTANT:
+	 Collected run data for sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-preproc_bold.nii.gz:
+boldmask: /tmp/tmpecn4wqit/links/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_desc-brain_mask.nii.gz
+boldref: /tmp/tmpecn4wqit/links/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_space-MNI152NLin6Asym_res-2_boldref.nii.gz
+motion_file: /tmp/tmpecn4wqit/links/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_desc-confounds_timeseries.tsv
+motion_json: /tmp/tmpecn4wqit/links/sub-002/ses-01/func/sub-002_ses-01_task-rest_run-01_desc-confounds_timeseries.json
+
+ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 23.135s
+
+OK

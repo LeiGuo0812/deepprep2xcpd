@@ -1,0 +1,50 @@
+{
+  "adapter_version": "2.2.0",
+  "date": "2026-09-26",
+  "passed": true,
+  "tests": {
+    "total": 31,
+    "seconds": 23.135,
+    "adapter_tests": 26,
+    "launcher_tests": 5,
+    "command": "bash scripts/docker_adapter.sh test",
+    "log": "tests.txt"
+  },
+  "environment": {
+    "runtime": "Docker Linux container launched from Linux/WSL Bash",
+    "machine": "x86_64",
+    "python": "3.12.12",
+    "image": "pennlinc/xcp_d@sha256:a919b121d1da8e090bfb3594f49ffeb5ddf2ab491327b04a7b8a1f304b64e7ca",
+    "packages": {
+      "xcp_d": "26.2.0",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2",
+      "pandas": "2.2.3",
+      "nibabel": "5.3.2",
+      "pybids": "0.21.0"
+    },
+    "thread_environment": {
+      "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": 2,
+      "OMP_NUM_THREADS": 2,
+      "OPENBLAS_NUM_THREADS": 1,
+      "MKL_NUM_THREADS": 1
+    }
+  },
+  "core_sha256": {
+    "deepprep_to_xcpd.py": "9f931a37f4a1f224912a7d396960452d3e45e2391b24287e4cfe1efc5cb0c040",
+    "transforms.py": "474bea62a9f234d84d90b7f4aa01f0b66a511a58f208aeb45b928c1824af506b",
+    "inplace.py": "a3644727d8b1521fed9d33656154d9edd8c99ea6a7b898fa65059a3918da5807"
+  },
+  "scientific_code_identical_to_validated_local_2_2_0": true,
+  "not_validated_here": [
+    "Native macOS",
+    "Apple Silicon emulation",
+    "Apptainer/SIF runtime",
+    "Production cohort reprocessing"
+  ],
+  "limitations": [
+    "Reader checks are not full BIDS Validator checks",
+    "Synthetic testing does not replace visual registration QC",
+    "KeyboardInterrupt diagnostic test uses exception injection, not system power loss"
+  ]
+}
