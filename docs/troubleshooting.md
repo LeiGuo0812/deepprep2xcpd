@@ -30,13 +30,15 @@
 | NIfTI / JSON TR 不符 | 核对真实 TR 和秒单位头信息；不能仅改标签“通过”检查 |
 | `forward convention/source mismatch` | 场的单位/方向/格式错误，或配准输入与结果不属于同一次配准 |
 | `Inverse quality gate failed` | 查看往返误差、支持比例和 Dice；不要降低阈值掩盖错误 |
-| `antsApplyTransforms not found` / XCP-D 版本错误 | 使用固定镜像，或修复本地完整依赖；普通 Python 不是完整运行环境 |
+| `antsApplyTransforms not found` / `Cannot import the XCP-D reader` | 选择包含完整依赖的镜像或修复本地环境；无需特定软件版本 |
 | `Permission denied` | 检查原目录父级、结果目录及挂载权限；wrapper 在 Linux/WSL 使用当前 UID/GID |
 | `Another ... holds the dataset lock` | 已有同目录适配或回滚进程；先确认它的状态，不同时启动第二个写入者 |
 | `BrokenProcessPool` / worker 意外退出 | 先查容器/作业退出码和内存限制；减少 jobs。不能单凭该错误判定为 OOM |
 | 数据库/SQLite 原生段错误 | 记录软件版本与 traceback。示例中的 DISABLE_SQLALCHEMY_CEXT_RUNTIME=1 是兼容设置，并不保证消除所有崩溃 |
 | XCP-D 选错变换 JSON | 使用生成的 input_filter.json，确保 xfm extension 限定为 `.nii.gz` |
 | 搬机器后 Missing 文件 | manifest 旧容器路径或实际 symlink 目标没有挂载；重新 plan 或恢复挂载 |
+
+若出现 `Incompatible XCP-D reader API`，错误中会列出函数签名和缺失参数；应适配该接口或选择具有所需读取能力的环境。未知版本号本身不会触发此错误。
 
 ## inplace 回滚
 

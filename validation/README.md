@@ -2,7 +2,9 @@
 
 [返回首页](../README.md)
 
-科学 Python 代码为 2.2.0，与发布前验证的本地工具一致。仓库新增 Docker Bash 包装脚本和跨平台文档。
+当前为 2.3.0。本次 31 项选择性测试通过；真实 ANTs/XCP-D 容器集成未重跑。详见 [2.3.0 验证记录](compatibility_2.3.0.md) 与 [日志](compatibility_tests_2.3.0.txt)。
+
+以下覆盖范围、summary.json 和 tests.txt 保存 **2.2.0 历史容器验收**，不能作为 2.3.0 全套测试结果。
 
 ## 覆盖范围
 

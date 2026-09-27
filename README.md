@@ -1,8 +1,8 @@
 # deepprep2xcpd
 
-将 **DeepPrep 24.1.2** 的 NIfTI 输出整理为 **XCP-D 26.2.0** 可读取的输入，支持创建独立目录、在原 BOLD 目录补齐，以及逐被试并行转换。
+将 **DeepPrep** 的 NIfTI 输出整理为 **XCP-D** 可读取的输入，支持创建独立目录、在原 BOLD 目录补齐，以及逐被试并行转换。
 
-**当前版本：2.2.0。** 本工具复用预处理 BOLD 和 confounds，转换原有 SynthMorph 位移场、生成数值逆变换、补建掩膜和三维参考图。它不重跑 DeepPrep，也不执行 XCP-D 的回归、滤波、平滑或删帧。
+**当前版本：2.3.0。** 本工具复用预处理 BOLD 和 confounds，转换原有 SynthMorph 位移场、生成数值逆变换、补建掩膜和三维参考图。它不重跑 DeepPrep，也不执行 XCP-D 的回归、滤波、平滑或删帧。
 
 English overview: [README.en.md](README.en.md).
 
@@ -20,12 +20,14 @@ English overview: [README.en.md](README.en.md).
 
 ## 适用范围
 
-- **输入契约：** DeepPrep 24.1.2，SynthMorph joint，目标模板格点上的物理 RAS 毫米位移场。
-- **目标契约：** XCP-D 26.2.0，NIfTI，使用 `--input-type fmriprep` 兼容读取；来源仍如实记录为 DeepPrep。
+- **输入契约：** DeepPrep SynthMorph joint，目标模板格点上的物理 RAS 毫米位移场。
+- **目标契约：** XCP-D NIfTI，使用 `--input-type fmriprep` 兼容读取；来源仍如实记录为 DeepPrep。
 - 已验证空间为 `MNI152NLin6Asym`；CLI 也接受 `MNI152NLin2009cAsym`，但本发布未对后者完成真实数据验证。
 - 支持任意合法被试标签、任务名称、多个 run，以及有/无 session 的功能数据；每名被试必须共用一套匹配的 T1 配准。
 - 不自动组合多回波，不生成 CIFTI、皮层表面或缺失的真实混杂变量。不同 session 独立 T1 配准需要扩展输入绑定，不能直接混用。
 - 已验证读取所需的 36P 列；不能据此认为任意 XCP-D 去噪策略的输入都已齐备。
+
+软件版本号不作为准入条件。历史完整验证环境为 DeepPrep 24.1.2 / XCP-D 26.2.0；其他版本只要满足相同数据约定并通过当前读取检查即可使用。新 manifest 使用无版本 profile，旧 manifest 仍可直接使用。来源软件版本从源 dataset_description.json 保留，缺失时不编造。
 
 ## 快速开始：Linux / Windows WSL / macOS Bash
 
@@ -41,7 +43,7 @@ docker pull pennlinc/xcp_d@sha256:a919b121d1da8e090bfb3594f49ffeb5ddf2ab491327b0
 bash scripts/docker_adapter.sh --version
 ```
 
-包装脚本使用固定的已验证镜像，不依赖 `latest`。首次需要下载镜像；本工具没有另行构建自己的 Docker 镜像。Apple Silicon 的说明见[macOS 部分](docs/platforms.md#macos)。
+包装脚本默认使用已验证镜像以便复现；可以设置 `ADAPTER_IMAGE` 选择其他 XCP-D 镜像（tag 或 digest），例如 `export ADAPTER_IMAGE=pennlinc/xcp_d:latest`。选择其他版本不会被版本号检查拦截，仍须通过相同数据和读取检查。首次需要下载镜像；本工具没有另行构建自己的 Docker 镜像。Apple Silicon 的说明见[macOS 部分](docs/platforms.md#macos)。
 
 ### 2. 设置宿主机路径
 

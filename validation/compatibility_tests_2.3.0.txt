@@ -1,0 +1,53 @@
+test_additional_optional_arguments_keep_reader_defaults (test_compatibility.CompatibilityTests) ... ok
+test_missing_dependency_and_missing_function_are_actionable (test_compatibility.CompatibilityTests) ... ok
+test_missing_version_is_not_invented_from_legacy_profile (test_compatibility.CompatibilityTests) ... ok
+test_preflight_does_not_consult_version_metadata (test_compatibility.CompatibilityTests) ... ok
+test_reader_internal_typeerror_is_not_retried (test_compatibility.CompatibilityTests) ... ok
+test_reader_with_and_without_session_arguments (test_compatibility.CompatibilityTests) ... ok
+test_source_versions_and_other_generators_are_preserved (test_compatibility.CompatibilityTests) ... ok
+test_unknown_required_arguments_report_actual_api (test_compatibility.CompatibilityTests) ... ok
+test_legacy_and_unversioned_manifests_reach_data_checks (test_version_policy.VersionPolicyTests) ... ok
+test_session_selection_with_both_reader_api_shapes (test_version_policy.VersionPolicyTests) ... ok
+test_extra_sources_and_offline_image_and_platform (test_launcher.LauncherTests) ... ok
+test_missing_source_fails_before_docker_is_called (test_launcher.LauncherTests) ... ok
+test_only_inplace_and_rollback_enable_source_writes (test_launcher.LauncherTests) ... ok
+test_plan_preserves_spaces_and_uses_read_only_source (test_launcher.LauncherTests) ... ok
+test_test_command_needs_no_source_mount_and_disables_network (test_launcher.LauncherTests) ... ok
+test_all_entry_paths_prioritize_complete_bold_without_crawling_work (test_adapter.PlanningPriorityTests) ... ok
+test_anatomy_fallback_does_not_add_unpublished_run (test_adapter.PlanningPriorityTests) ... ok
+test_missing_bold_tree_recovers_from_work_with_consistent_dataset_binding (test_adapter.PlanningPriorityTests) ... ok
+test_missing_extra_search_root_reports_typo (test_adapter.PlanningPriorityTests) ... ok
+test_optional_reference_is_recovered_before_first_frame_fallback (test_adapter.PlanningPriorityTests) ... ok
+test_physical_affine_inverse_and_lps_serialization (test_adapter.TransformTests) ... ok
+test_confounds_time_mismatch_rejected (test_adapter.SelectionTests) ... ok
+test_conflicting_work_files_rejected (test_adapter.SelectionTests) ... ok
+test_subject_path_injection_rejected (test_adapter.SelectionTests) ... ok
+test_workdir_fallback_sessions_and_run_boundaries (test_adapter.SelectionTests) ... ok
+test_conflict_found_before_any_publication (test_inplace.PublicationTests) ... ok
+test_reuse_symlink_then_explicit_rollback (test_inplace.PublicationTests) ... ok
+test_rollback_preserves_externally_edited_file (test_inplace.PublicationTests) ... ok
+test_symlinked_directory_and_second_writer_rejected (test_inplace.PublicationTests) ... ok
+test_validation_failure_restores_original_and_removes_additions (test_inplace.PublicationTests) ... ok
+test_invalid_jobs_rejected_before_lock_or_staging (test_parallel.ParallelConversionTests) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.854s
+
+OK
+Published dataset: /tmp/tmpg15ad9wu/BOLD
+Wrote /tmp/tmpg15ad9wu/manifest0.json: 1 subjects, 1 runs. No conversion executed.
+Published dataset: /tmp/tmpg15ad9wu/BOLD
+Wrote /tmp/tmpg15ad9wu/manifest1.json: 1 subjects, 1 runs. No conversion executed.
+Published dataset: /tmp/tmpg15ad9wu/BOLD
+Wrote /tmp/tmpg15ad9wu/manifest2.json: 1 subjects, 1 runs. No conversion executed.
+Published dataset: /tmp/tmp8ti9lnl8/BOLD
+Wrote /tmp/tmp8ti9lnl8/manifest0.json: 1 subjects, 1 runs. No conversion executed.
+Published dataset: /tmp/tmppkzdn5ti/BOLD
+Wrote /tmp/tmppkzdn5ti/manifest0.json: 1 subjects, 1 runs. No conversion executed.
+Published dataset: /tmp/tmppkzdn5ti/BOLD
+Wrote /tmp/tmppkzdn5ti/manifest1.json: 1 subjects, 1 runs. No conversion executed.
+Published dataset: /tmp/tmpzgxvt55p/BOLD
+Wrote /tmp/tmpzgxvt55p/manifest0.json: 1 subjects, 1 runs. No conversion executed.
+Published dataset: /tmp/tmpm3axb1yq/BOLD
+Wrote /tmp/tmpm3axb1yq/manifest.json: 1 subjects, 2 runs. No conversion executed.
+ROLLED BACK: 20260927T012747Z-df741579; backups and journal retained

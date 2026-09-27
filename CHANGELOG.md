@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.3.0 — 2026-09-27
+
+- 移除 XCP-D 精确版本检查，改为读取 API 能力检查；按签名适配 collect_data 的 session 参数。
+- 新 profile 不含软件版本，保留旧 profile 别名；schema 和位移场定义检查保持。
+- GeneratedBy 继承源软件记录，不再将未知 DeepPrep 版本写死为 24.1.2。
+- 文档区分历史验证环境与可用版本，明确 ADAPTER_IMAGE 可选择其他版本。
+- 澄清 BOLD 输出分辨率与内部结构配准网格不同；计算始终读取实际 header。
+- 本次测试范围与 Docker 不可用限制见兼容性更新验证记录；历史验收记录不改写。
+
 ## 2.2.0 — 2026-09-26
 
 - Added `convert --jobs N` for independent subject staging with Python spawn processes. Default 1; range 1–16; capped by the manifest subject count.

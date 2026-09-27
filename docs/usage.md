@@ -4,9 +4,9 @@
 
 本工具优先从已完成的 DeepPrep 最终输出中，整理出 XCP-D 可以读取的 **NIfTI 体积数据集**。它复用预处理 BOLD 和 confounds，转换原有配准的格式，补建脑掩膜、逆变换和三维参考图；不重跑 BOLD 预处理，不做回归、滤波、despike 或删帧。最终输出缺少所需来源时，才利用保留的工作文件补充。
 
-代码入口：`deepprep_to_xcpd.py`；坐标算法：`transforms.py`；原目录事务发布：`inplace.py`；测试：`tests/`。这些文件组成独立工具；不依赖任何项目专用脚本。
+代码入口：`deepprep_to_xcpd.py`；坐标算法：`transforms.py`；原目录事务发布：`inplace.py`；测试：`tests/`。新增的 `compatibility.py` 处理读取 API 和来源记录；这些文件组成独立工具；不依赖任何项目专用脚本。
 
-**支持两种输出布局（当前版本 2.2.0）：**
+**支持两种输出布局（当前版本 2.3.0）：**
 
 | 选项 | 行为 | 适用情况 |
 |---|---|---|
@@ -17,15 +17,15 @@
 
 ## 1. 支持范围
 
-- 已核实的源格式：**DeepPrep 24.1.2，SynthMorph joint，物理 RAS 毫米位移场**。
-- 已核实的目标环境：**XCP-D 26.2.0，NIfTI，fMRIPrep 兼容读取器**。
+- 输入按格式判断：**DeepPrep SynthMorph joint，物理 RAS 毫米位移场**；不限制软件版本。
+- 目标为 **XCP-D NIfTI、fMRIPrep 兼容读取器**；按已安装读取接口和实际读取结果检查，不设置版本白名单。DeepPrep 24.1.2 / XCP-D 26.2.0 是历史完整验证环境。
 - 不限定被试数量、任务名称、帧数或 TR；从选择的文件和元数据读取。要求单回波，BOLD 帧数与 confounds 行数一致，NIfTI/JSON 的 TR 一致。当前实测项目使用 MNI152NLin6Asym、2 mm、rest。
 - 路径、被试编号、task、BOLD 分辨率均可配置；支持无 session 的 `sub-X/func` 和含 session 的 `sub-X/ses-Y/func`，支持同一被试多个 run。
 - 每个被试使用一套共同的、与所有选中 BOLD 对应的 T1 配准。**不同 session 各有独立 T1 配准时，不要混为一套**；需拆分输入或扩展按 session 绑定结构像的实现。
 - CLI 接受 MNI152NLin2009cAsym，但验证项目未实测该模板。它仍需相同源形变定义、完整的配准输入/输出和全部质量门槛；不能仅修改 `space` 来改变真实模板。
-- 不支持把任意 DeepPrep 版本、ANTs/FSL 形变或绝对坐标场自动解释成上述位移场。切换版本必须重新检查源代码和输入契约。
+- 版本号不会阻止运行；数据仍须满足上述位移场约定。不能把 ANTs/FSL 形变或绝对坐标场直接当作 RAS 毫米位移。程序持续检查 T1 重现、位移场几何、求逆质量和实际读取结果。
 
-`--input-type fmriprep` 只是在 XCP-D 中选择兼容的文件读取方式。输出的 `GeneratedBy` 如实写 DeepPrep 和本适配器，不伪称数据由 fMRIPrep 产生。这里的 schema/profile 声明表示用户选择了已验证的源格式，不代表脚本能从 NIfTI 自动鉴定 DeepPrep 版本。
+`--input-type fmriprep` 只是在 XCP-D 中选择兼容的文件读取方式。输出的 `GeneratedBy` 如实写 DeepPrep 和本适配器，不伪称数据由 fMRIPrep 产生。新 profile 为 `deepprep-synthmorph-ras-mm`；旧 `deepprep-24.1.2-synthmorph-ras-mm` 保留为兼容别名。它们描述同一数据约定，不鉴定或限制源软件版本。GeneratedBy 从源 dataset_description.json 保留；未知版本不再写成 24.1.2。
 
 该工具不承诺补齐 XCP-D 的所有可选分支：不会凭空生成 fsLR-91k CIFTI、皮层表面、髓鞘图、个体 HCP 分区或不同策略的 CompCor 成分。已验证的是 **36P、NIfTI、LINC QC、体积分区、ALFF/ReHo/FC** 输入需求。其他去噪策略需要另外核对它们所需的 confounds 列和元数据。
 
@@ -376,7 +376,7 @@ docker run --rm \
 
 ### 6.1 不使用 Docker
 
-Python 代码不调用 Docker；Docker 示例仅提供已经核实的运行环境。本地环境需安装 Python（支持 `str.removeprefix` / `Path.is_relative_to`）、NumPy、SciPy、pandas、nibabel、PyBIDS、XCP-D **26.2.0**，且 `antsApplyTransforms` 在 PATH 中。代码对 XCP-D 版本作精确检查；仅安装普通 Python 或另一个版本的 XCP-D 不足以运行完整转换。
+Python 代码不调用 Docker；Docker 示例仅提供已经核实的运行环境。本地环境需安装 Python（支持 `str.removeprefix` / `Path.is_relative_to`）、NumPy、SciPy、pandas、nibabel、PyBIDS、XCP-D，且 `antsApplyTransforms` 在 PATH 中。程序按实际读取 API 检查依赖，兼容带有或不带 session 参数的 collect_data 接口。版本号不同不会拒绝运行；缺依赖、接口不匹配或数据检查失败时会给出具体原因。
 
 在具备上述依赖的本地环境中：
 
@@ -431,4 +431,12 @@ docker run --rm --network none \
 - 本地 DeepPrep 镜像 `pbfslab/deepprep:24.1.2`，ID `831ed7aad85e53c4b762864930965286ca25f197ff4077a9d071f65c9ad5c470`。
 - 镜像内 `/opt/DeepPrep/deepprep/SynthMorph/{mri_synthmorph_joint,bold_synthmorph_joint}.py` 与 `/opt/DeepPrep/deepprep/nextflow/bin/{bold_apply_transform_chain,bold_anat_prepare,bold_confounds_combine}.py`。
 
-工具版本：2.2.0。测试范围见 [validation/README.md](../validation/README.md)，版本差异见 [CHANGELOG.md](../CHANGELOG.md)。
+工具版本：2.3.0。测试范围见 [validation/README.md](../validation/README.md)，版本差异见 [CHANGELOG.md](../CHANGELOG.md)。
+
+## 版本选择与分辨率
+
+固定镜像命令是可复现示例，不是版本限制。使用其他版本时替换命令中的镜像即可；仓库包装脚本支持 `ADAPTER_IMAGE`。实际运行的依赖版本仍写入 validation.json。旧发布的验证日志保留原环境信息，不表示新版已在全部版本上验收。
+
+适配器的 `--resolution` 选择已有 BOLD 文件，不修改上游配准分辨率，也不重新重采样 BOLD。其逆场输出网格来自实际 native_t1w 的 header，未硬编码 1 mm。
+
+核查的 DeepPrep 实现中，`bold_T1_to_2mm.py` 将配准 moving T1 固定重采样为 2 mm；SynthMorph 的 fixed 模板也固定请求 resolution=2。用户的 `--bold_volume_res` 控制最终标准空间 BOLD/boldref 网格，不控制这两个配准网格。因此改成 1 mm BOLD 输出，不会自动将配准逆场变成 1 mm。原生导出应读取实际图像 header 和物理范围。

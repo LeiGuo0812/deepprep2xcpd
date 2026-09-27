@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "profile": "deepprep-24.1.2-synthmorph-ras-mm",
+  "profile": "deepprep-synthmorph-ras-mm",
   "space": "MNI152NLin6Asym",
   "task": "rest",
   "subjects": [

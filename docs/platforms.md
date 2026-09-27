@@ -4,7 +4,7 @@
 
 ## 支持状态
 
-代码的输入契约固定为 DeepPrep 24.1.2 / XCP-D 26.2.0；“可使用某种容器运行方式”不等于该硬件平台已经完成科学结果一致性验收。
+兼容性按数据约定和实际读取 API 检查，不固定 DeepPrep/XCP-D 版本；24.1.2 / 26.2.0 是历史完整验证环境；“可使用某种容器运行方式”不等于该硬件平台已经完成科学结果一致性验收。
 
 | 平台 | 使用方式 | 本次状态 |
 |---|---|---|
@@ -70,7 +70,7 @@ bash scripts/docker_adapter.sh --version
 bash scripts/docker_adapter.sh test
 ```
 
-Docker 可使用 amd64 模拟运行 Intel 容器，但存在性能和兼容性限制，详见 [Docker 已知问题](https://docs.docker.com/desktop/troubleshoot-and-support/troubleshoot/known-issues/)。这里没有宣称固定镜像提供原生 arm64 构建。若测试失败或镜像不能拉取，使用经过验证的 x86_64 Linux/WSL 主机，不要通过取消版本/质量检查绕过失败。
+Docker 可使用 amd64 模拟运行 Intel 容器，但存在性能和兼容性限制，详见 [Docker 已知问题](https://docs.docker.com/desktop/troubleshoot-and-support/troubleshoot/known-issues/)。这里没有宣称固定镜像提供原生 arm64 构建。若测试失败或镜像不能拉取，使用经过验证的 x86_64 Linux/WSL 主机，应检查实际依赖与质量检查失败原因。
 
 `--jobs` 与 Docker VM 分配到的内存共同决定实际容量；Mac 的物理内存总量不等于容器可用内存。本发布未在 Intel/Apple Silicon Mac 上验证结果。
 
@@ -122,7 +122,7 @@ apptainer exec --cleanenv \
 
 本仓库没有把 XCP-D、ANTs 和科学库打包成一个可跨操作系统 `pip install` 的环境。仅 `pip install numpy nibabel` 不够。
 
-必须提供：Python（代码使用 Python 3.9+ 的语法/API，实际验证环境为 Python 3.12）、NumPy、SciPy、pandas、nibabel、PyBIDS、**XCP-D 26.2.0**，以及 PATH 中的 `antsApplyTransforms`。依赖本身的 Python 支持范围还须满足；代码最低语法版本不构成环境支持承诺。inplace 需要 Unix `fcntl`。
+必须提供：Python（代码使用 Python 3.9+ 的语法/API，实际验证环境为 Python 3.12）、NumPy、SciPy、pandas、nibabel、PyBIDS、**XCP-D**，以及 PATH 中的 `antsApplyTransforms`。依赖本身的 Python 支持范围还须满足；代码最低语法版本不构成环境支持承诺。inplace 需要 Unix `fcntl`。
 
 ```bash
 python deepprep_to_xcpd.py --version
@@ -131,7 +131,7 @@ antsApplyTransforms --version
 python -m unittest discover -s tests -v
 ```
 
-通过后使用宿主机真实路径重新 plan。容器内的 `/deepprep`、`/result` 路径不能直接在本地 Python 下使用。请记录安装环境，参照发布测试记录中的版本，而不是擅自修改精确的 XCP-D 版本检查。
+通过后使用宿主机真实路径重新 plan。容器内的 `/deepprep`、`/result` 路径不能直接在本地 Python 下使用。请记录安装环境；版本号不限制运行，程序会检查读取 API 并验证实际文件。
 
 ## Docker 包装脚本的环境变量
 
@@ -143,7 +143,7 @@ python -m unittest discover -s tests -v
 | `ADAPTER_RESULTS` | 已存在的结果目录；plan/convert/validate/rollback 时需设置 |
 | `BIDS_DIR` | 可选，挂载参与者映射来源到 `/bids:ro` |
 | `EXTRA_WORK_DIR` | 可选，挂载额外工作来源到 `/extra_work:ro` |
-| `ADAPTER_IMAGE` | 默认固定 digest；离线可指向已核对 image ID 的本地标签 |
+| `ADAPTER_IMAGE` | 默认已验证 digest；可指定其他版本镜像或离线本地标签 |
 | `ADAPTER_PLATFORM` | 默认不传 Docker platform；需要 amd64 模拟时设置 `linux/amd64` |
 | `ADAPTER_ITK_THREADS` | 默认 2 |
 | `ADAPTER_OMP_THREADS` | 默认 2 |
@@ -157,4 +157,4 @@ export ADAPTER_OMP_THREADS=1
 export ADAPTER_BLAS_THREADS=1
 ```
 
-数值结果仍须通过相同检查。覆盖 `ADAPTER_IMAGE` 时请保持 XCP-D 26.2.0 和全部依赖，代码会拒绝其他 XCP-D 版本。脚本不读取 `.env`，不自动下载图谱，也不提供运行 XCP-D 本身的入口。
+数值结果仍须通过相同检查。覆盖 `ADAPTER_IMAGE` 时须提供完整依赖；代码不按 XCP-D 版本拒绝运行，而是检查读取 API 和实际数据。脚本不读取 `.env`，不自动下载图谱，也不提供运行 XCP-D 本身的入口。

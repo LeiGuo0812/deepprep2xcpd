@@ -1,4 +1,4 @@
-"""Physical-coordinate transform routines for DeepPrep 24.1.2 SynthMorph.
+"""Physical-coordinate transform routines for SynthMorph RAS-mm displacements.
 
 Forward image resampling pulls T1w coordinates from the template lattice.
 NIfTI geometry remains RAS; ITK displacement vector components are LPS mm.
@@ -38,7 +38,7 @@ def apply(src, ref, dest, transform, interp='Linear'):
 
 
 def inverse_field(field, affine, reference, brain, native_brain):
-    """Invert pull-back map F(x)=x+d(x) on the native 1 mm reference lattice.
+    """Invert pull-back map F(x)=x+d(x) on the supplied native reference lattice.
 
     Affine-preconditioned damped iteration; nearest boundary extension is used
     to populate the rectangular field outside its scientifically valid domain.

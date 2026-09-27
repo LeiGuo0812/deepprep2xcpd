@@ -1,6 +1,6 @@
-# deepprep2xcpd 2.2.0
+# deepprep2xcpd 2.3.0
 
-Adapt **DeepPrep 24.1.2 SynthMorph RAS-displacement NIfTI derivatives** into an input dataset readable by **XCP-D 26.2.0**.
+Adapt **DeepPrep SynthMorph RAS-displacement NIfTI derivatives** into an input dataset readable by **XCP-D**.
 
 The adapter reuses preprocessed BOLD and confounds, converts displacement-vector conventions, computes and validates a numerical inverse, and supplies masks and 3D references. It does not rerun DeepPrep or perform XCP-D denoising.
 
@@ -27,7 +27,7 @@ bash scripts/docker_adapter.sh validate \
   --input /result/xcpd-input --subjects 001 --report /result/reader_validation.json
 ```
 
-The launcher uses a pinned XCP-D image and downloads it on first Docker use if necessary. No GPU is required. Host paths are environment variables; command arguments use the container paths `/deepprep` and `/result`.
+The launcher defaults to a tested XCP-D image (override it with `ADAPTER_IMAGE` to use another release) and downloads it on first Docker use if necessary. No GPU is required. Host paths are environment variables; command arguments use the container paths `/deepprep` and `/result`.
 
 ## Modes and parallelism
 
@@ -40,7 +40,7 @@ Published BOLD sources have priority. WorkDir is only a fallback for missing sou
 
 ## Scope
 
-The validated scientific contract is DeepPrep 24.1.2 SynthMorph joint physical RAS millimetre displacement, XCP-D 26.2.0 NIfTI, and one shared anatomical registration per subject. Arbitrary DeepPrep releases, independent session-specific T1 registrations, multi-echo combination, CIFTI, and surface reconstruction are outside the supported scope.
+Compatibility depends on SynthMorph joint physical RAS millimetre displacements, the installed XCP-D NIfTI reader API, and one shared anatomical registration per subject. Software versions are not allowlisted. DeepPrep 24.1.2 / XCP-D 26.2.0 are the historical full-validation environment, not mandatory releases. New manifests use `deepprep-synthmorph-ras-mm`; the old versioned profile remains an accepted alias. Source software versions are preserved from dataset_description.json and are never guessed. Independent session-specific T1 registrations, multi-echo combination, CIFTI, and surface reconstruction remain outside the current scope.
 
 Validation uses actual ANTs and XCP-D reader operations on synthetic data in an x86_64 Linux container. macOS hardware, ARM emulation, and Apptainer instructions are provided as configuration guidance, not as claims of tested scientific equivalence on those platforms.
 

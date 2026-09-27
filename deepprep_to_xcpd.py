@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Auditable DeepPrep 24.1.2 SynthMorph -> XCP-D 26.2.0 NIfTI adapter.
+"""Auditable DeepPrep SynthMorph -> XCP-D NIfTI adapter.
 
 plan discovers exact BIDS-named files (including retained working directories).
 convert consumes an explicit manifest; it never guesses among conflicting files.
@@ -26,9 +26,11 @@ import numpy as np
 import pandas as pd
 
 from transforms import affine_points, apply, error_summary, field_image, inverse_field, sample
+from compatibility import load_readers, reader_kwargs, source_generated_by
 
-VERSION = '2.2.0'
-PROFILE = 'deepprep-24.1.2-synthmorph-ras-mm'
+VERSION = '2.3.0'
+PROFILE = 'deepprep-synthmorph-ras-mm'
+SUPPORTED_PROFILES = (PROFILE, 'deepprep-24.1.2-synthmorph-ras-mm')
 SPACES = ('MNI152NLin6Asym', 'MNI152NLin2009cAsym')
 ANAT_ROLES = ('native_t1w', 'native_mask', 'registration_moving',
               'registration_warped', 'forward_ras')
@@ -328,7 +330,7 @@ def adapt_record(record, stage, space, task, mode):
             ref=bold
             data=np.asarray(bold.dataobj[...,0])
             ref_sources=[run['bold']]
-            desc='First retained standard-space BOLD frame, matching the DeepPrep 24.1.2 bold_apply_transform_chain boldref convention.'
+            desc='First retained standard-space BOLD frame, following the declared SynthMorph RAS-mm profile reference convention.'
         header=ref.header.copy()
         ref3d=nb.Nifti1Image(data,ref.affine,header)
         ref3d.header.set_xyzt_units('mm')
@@ -350,11 +352,10 @@ def adapt_record(record, stage, space, task, mode):
 
 
 def reader_validate(root, subjects=None, expected_bold=None):
-    """Pin the reader contract; future XCP-D API changes require revalidation."""
-    require(importlib.metadata.version('xcp_d')=='26.2.0','Reader validation requires XCP-D 26.2.0')
+    """Exercise the installed reader by capability, without a release allowlist."""
+    collect_data, collect_run_data = load_readers()
     from bids import BIDSLayout
     from bids.layout import Query
-    from xcp_d.utils.bids import collect_data, collect_run_data
     filters=json.loads((root/'code'/'adapter'/'input_filter.json').read_text())
     root=Path(root).resolve()
     layout=BIDSLayout(root,validate=False,config=['bids','derivatives'])
@@ -367,11 +368,17 @@ def reader_validate(root, subjects=None, expected_bold=None):
     for sid in subjects:
         label=normalized_subject(sid).removeprefix('sub-')
         sessions=layout.get_sessions(subject=label)+[Query.NONE]
-        data=collect_data(layout,'fmriprep',label,filters,'nifti',None,sessions)
+        data=collect_data(**reader_kwargs(collect_data,
+            dict(layout=layout,input_type='fmriprep',participant_label=label,
+                 bids_filters=filters,file_format='nifti'),
+            dict(anat_session=None,func_sessions=sessions)))
+        require(isinstance(data,dict),'XCP-D collect_data must return a data dictionary; check the reader API')
         require(data['bold'],f'No collected BOLD for {label}')
         for key in ('anat_to_template_xfm','template_to_anat_xfm'):
             require(data[key].endswith('.nii.gz'),f'XCP-D selected wrong transform: {data[key]}')
-        runs=[collect_run_data(layout,bold,'nifti',filters['bold']['space']) for bold in data['bold']]
+        runs=[collect_run_data(**reader_kwargs(collect_run_data,
+            dict(layout=layout,bold_file=bold,file_format='nifti',target_space=filters['bold']['space'])))
+            for bold in data['bold']]
         expected=(expected_bold.get('sub-'+label) if expected_bold is not None else
                   layout.get(return_type='file',subject=label,datatype='func',suffix='bold',
                              desc='preproc',extension='.nii.gz',**filters['bold']))
@@ -544,7 +551,8 @@ def _stage_records(records, callargs, jobs, retain):
 def _convert(args):
     manifest_path=args.manifest.resolve()
     manifest=json.loads(manifest_path.read_text())
-    require(manifest.get('schema_version')==1 and manifest.get('profile')==PROFILE,'Unsupported manifest/profile')
+    require(manifest.get('schema_version')==1 and manifest.get('profile') in SUPPORTED_PROFILES,
+            'Unsupported manifest schema or displacement convention; use the SynthMorph RAS-mm profile (legacy profile also accepted)')
     if manifest.get('source_dataset'):
         dataset=Path(manifest['source_dataset'])
         if not dataset.is_absolute():
@@ -564,6 +572,10 @@ def _convert(args):
                    'ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS','OMP_NUM_THREADS',
                    'OPENBLAS_NUM_THREADS','MKL_NUM_THREADS')}}
     inputs=set()
+    if manifest.get('source_dataset'):
+        description=Path(manifest['source_dataset'])/'dataset_description.json'
+        if description.is_file():
+            inputs.add(description.resolve())
     for record in records:
         require(record['runs'],'Subject has no runs')
         keys=[(r['prefix'],str(r['resolution'])) for r in record['runs']]
@@ -602,7 +614,7 @@ def _convert(args):
         require(not output.exists(),f'Output exists; use a new output directory: {output}')
         require(not any(p.is_relative_to(output) for p in inputs),'Output cannot contain source files')
     require(shutil.which('antsApplyTransforms'),'antsApplyTransforms not found; use the XCP-D container')
-    require(importlib.metadata.version('xcp_d')=='26.2.0','Use tested XCP-D 26.2.0 environment')
+    load_readers()
     output.parent.mkdir(parents=True,exist_ok=True)
     stage=Path(tempfile.mkdtemp(prefix='.'+output.name+'.building-',dir=output.parent))
     reports=stage/'code'/'adapter'
@@ -617,9 +629,8 @@ def _convert(args):
         write_json(stage/'dataset_description.json',{
             'Name':'DeepPrep derivatives adapted for XCP-D NIfTI processing',
             'BIDSVersion':'1.9.0','DatasetType':'derivative',
-            'GeneratedBy':[{'Name':'DeepPrep','Version':'24.1.2'},
-                           {'Name':'DeepPrepXCPDAdapter','Version':VERSION}],
-            'Description':'Format/geometry adaptation of the declared DeepPrep 24.1.2 profile; not an fMRIPrep rerun.'})
+            'GeneratedBy':source_generated_by(manifest)+[{'Name':'DeepPrepXCPDAdapter','Version':VERSION}],
+            'Description':'Format/geometry adaptation of the declared SynthMorph RAS-mm profile; not an fMRIPrep rerun.'})
         write_json(reports/'input_filter.json',{
             'bold':{'space':manifest['space'],'task':manifest['task']},
             'anat_to_template_xfm':{'extension':'.nii.gz'},
@@ -644,7 +655,7 @@ def _convert(args):
         require(all(digest(r['path'])==r['sha256'] for r in provenance_records),'Source changed during conversion; output not published')
         require(not any(p.is_symlink() and not p.exists() for p in stage.rglob('*')),'Broken source links')
         write_json(reports/'validation.json',{'adapter_version':VERSION,'passed':True,
-                  'scope':'Transform, geometry, 36P input and XCP-D 26.2.0 reader validation; not a full XCP-D run.',
+                  'scope':'Transform, geometry, 36P input and installed XCP-D reader validation; not a full XCP-D run.',
                   'mode':'reuse' if inplace else args.mode,'layout':'inplace' if inplace else 'separate',
                   'subjects':results,'reader':collected,'execution':execution,
                   'software':{n:importlib.metadata.version(n) for n in ['xcp_d','nibabel','numpy','scipy','pandas']}})
